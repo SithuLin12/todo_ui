@@ -33,6 +33,20 @@ class PostController extends Controller
         return view('read',compact('post'));
     }
 
+    // edit post page
+    public function postEdit($id) {
+        $post = Post::where('id',$id)->first();
+        return view('edit',compact('post'));
+    }
+
+    // update post process
+    public function postUpdate(Request $request){
+        $post = $this->postCreateData($request);
+        $id = $request->postId;
+        Post::where('id',$id)->update($post);
+        return redirect()->route('post#create#page');
+    }
+
     // create post data call
     private function postCreateData($request) {
         return  [

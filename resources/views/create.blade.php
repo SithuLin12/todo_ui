@@ -13,7 +13,7 @@
                 <label for="" class="text-warning mt-3">Description</label>
                 <textarea name="userDescription" class="form-control text-white bg-black" id="" cols="30" rows="10"></textarea>
                 <div class=" mt-3">
-                    <button type="submit" class="btn btn-warning">Create</button>
+                    <button type="submit" class="btn btn-warning"><i class="fa-solid fa-plus me-2"></i>Create</button>
                 </div>
             </form>
 
@@ -36,7 +36,9 @@
                     <a href="{{ route('post#read',$p['id']) }}">
                         <button class="btn btn-sm btn-warning">read</button>
                     </a>
+                   <a href="{{ route('post#edit',$p['id']) }}">
                     <button class="btn btn-sm btn-primary">update</button>
+                   </a>
                 </div>
             </div>
             @endforeach

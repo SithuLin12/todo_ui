@@ -9,7 +9,7 @@
                 </a>
                 <h4 class="mt-5 text-warning">{{ $post['title'] }}</h4>
                 <p>{{ $post['description'] }}</p>
-                <a href="" class="float-end">
+                <a href="{{ route('post#edit',$post['id']) }}" class="float-end">
                     <button class="btn px-3 btn-warning">Edit</button>
                 </a>
             </div>

@@ -31,3 +31,9 @@ Route::get('post/delete/{id}',[PostController::class,'postDelete'])->name('post#
 
 // read post
 Route::get('post/read/{id}',[PostController::class,'postRead'])->name('post#read');
+
+// edit page
+Route::get('post/edit/{id}',[PostController::class,'postEdit'])->name('post#edit');
+
+// update post
+Route::post('post/update',[PostController::class,'postUpdate'])->name('post#update');
