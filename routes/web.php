@@ -20,6 +20,9 @@ use App\Http\Controllers\PostController;
 
 // Route::get('/',[PostController::class,'post'])->name('post');
 
+// redirect route
+// Route::redirect('/', 'post/create', )->name('post#create#page');
+
 // crete page
 Route::get('/',[PostController::class,'post'])->name('post#create#page');
 

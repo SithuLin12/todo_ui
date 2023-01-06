@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     //create page view
     public function post( ) {
-        $post = Post::orderBy('created_at','desc')->get()->toArray();
+        $post = Post::orderBy('created_at','desc')->paginate(3);
         return view('create',compact('post'));
     }
 
@@ -17,7 +17,7 @@ class PostController extends Controller
     public function postCreate(Request $request) {
         $data = $this->postCreateData($request);
         Post::create($data);
-        return redirect()->route('post#create#page');
+        return redirect()->route('post#create#page')->with(['createSession' => 'ပို့စ်ဖန်တီးခြင်းအောင်မြင်ပါသည်။']);
     }
 
     // delete post process
@@ -44,7 +44,7 @@ class PostController extends Controller
         $post = $this->postCreateData($request);
         $id = $request->postId;
         Post::where('id',$id)->update($post);
-        return redirect()->route('post#create#page');
+        return redirect()->route('post#create#page')->with(['updateSession' => 'ပို့စ်ပြန်လည် ပြုပြင် ခြင်းအောင်မြင်ပါသည်။']);
     }
 
     // create post data call
