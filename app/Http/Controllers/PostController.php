@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PostController extends Controller
 {
@@ -15,6 +16,12 @@ class PostController extends Controller
 
     // create post process
     public function postCreate(Request $request) {
+        $validationRule = [
+            'userTitle' => 'required',
+            'userDescription' => 'required'
+        ];
+        Validator::make($request->all(),$validationRule)->validate();
+
         $data = $this->postCreateData($request);
         Post::create($data);
         return redirect()->route('post#create#page')->with(['createSession' => 'ပို့စ်ဖန်တီးခြင်းအောင်မြင်ပါသည်။']);
